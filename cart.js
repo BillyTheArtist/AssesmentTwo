@@ -35,6 +35,12 @@ const cart = [
 
 //CODE HERE
 
+const summedPrice = cart.reduce((a, c) => {
+    return a + c.price
+}, 0)
+
+console.log(summedPrice)
+
 // const summedPrice = cart.reduce(/* CALLBACK HERE */)
 
 
@@ -54,6 +60,10 @@ const cart = [
 */
 
 //CODE HERE
+
+function calcFinalPrice (cartTotal, couponValue, tax) {
+   return cartTotal + (cartTotal * tax) - couponValue
+}
 
 
 
@@ -79,7 +89,10 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
-
+name will be a string to identify the customer
+address will be a string to have a location
+phone number to contact customer
+wantsMarketingEmails will be a boolean, do they want additional emails or not
 */
 
 /*
@@ -88,3 +101,10 @@ const cart = [
 */
 
 //CODE HERE
+
+let custObj = {
+    name: 'Billy',
+    address: '1234 doesnt matter ln',
+    phone: 1233321233,
+    wantsMarketingEmails: false
+}

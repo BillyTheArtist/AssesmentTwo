@@ -32,7 +32,7 @@
 
 //CODE HERE
 
-const pizza = {
+let pizza = {
     name: 'Pepperoni Pie',
     price: 20,
     catagory: 'Entree',
@@ -106,9 +106,9 @@ console.log(catagory)
 
 //CODE HERE
 
-let foodArr = []
+let foodArr = [
 
-const cannoli = {
+{
     name: 'Cannoli',
     price: 6,
     catagory: 'Dessert',
@@ -116,48 +116,48 @@ const cannoli = {
     rating: 5,
     tags: ["Cream Filled", "Tasty dessert!"]
 
-}
+},
 
-const mozzarellaSticks = {
+{
     name: 'Mozzarella Sticks',
     price: 12,
     catagory: 'Appatizer',
     popularity: 3,
-    rating: 5,
+    rating: 9,
     tags: ["Fried in house", "Ten sticks per order"]
 
-}
+},
 
-const garlicKnots = {
+{
     name: 'Garlic Knots',
     price: 3,
     catagory: 'Appatizer',
-    popularity: 2,
-    rating: 5,
+    popularity: 7,
+    rating: 2,
     tags: ["Fresh baked dough topped with garlic butter and parmesan", "Three per order"]
 
-}
+},
 
-const caeserSalad = {
+{
     name: 'Caeser Salad',
     price: 13,
     catagory: 'Appatizer',
     popularity: 6,
-    rating: 5,
+    rating: 7,
     tags: ["Vegetarian", "Feeds 1-2 people"]
 
-}
+},
 
-const stromboli = {
+{
     name: 'Stromboli',
     price: 14,
     catagory: 'Entree',
     popularity: 5,
-    rating: 5,
+    rating: 1,
     tags: ["Hand stretched dough stuffed with three meats and mozzarella", "Feeds 2-3 people"]
 
 }
-
+]
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -173,11 +173,9 @@ const stromboli = {
 
 //CODE HERE
 
-const pickTag = (arr, tags, callBack) => {
-for (i = 0; i < tags.length; i++) {
-    
-}
-}
+const filteredFood = foodArr.filter((foodObj) => foodObj.tags.includes('Fried in house'));
+
+console.log(filteredFood)
 
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
 
@@ -224,6 +222,16 @@ for (i = 0; i < tags.length; i++) {
 
 //CODE HERE
 
+function filterByProperty(property, number, type) {
+    let filteredArray = foodArr.filter((foodObj) => {
+        if (type === 'above') {
+            return foodObj[property] > number
+        } else if(type ==='below') {
+            return foodObj[property] < number
+        }
+    })
+    return filteredArray
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -233,3 +241,5 @@ for (i = 0; i < tags.length; i++) {
 */
 
 //CODE HERE
+
+console.log(filterByProperty('rating', 6, 'above'))

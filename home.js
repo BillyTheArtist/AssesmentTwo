@@ -29,6 +29,8 @@ const greetUser = (username) => {
 
 greetUser('Andrew')
 
+//Could have used an implicit return
+
 //////////////////PROBLEM 2////////////////////
 /* 
     Below is an array of zip codes that are in
@@ -53,17 +55,19 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
 
-const canWeDeliver = (zipCode) => {
-    for (i = 0; i < deliveryAreaZipCodes.length; i++) {
-        if (deliveryAreaZipCodes[i] === zipCode) {
-            return "You're in our delivery zone!"
-        } else {
-            return "Sorry, we can't deliver to that address"
-        }
-    }
-}
+// const canWeDeliver = (zipCode) => {
+//     for (i = 0; i < deliveryAreaZipCodes.length; i++) {
+//         if (deliveryAreaZipCodes[i] === zipCode) {
+//             return "You're in our delivery zone!"
+//         } else {
+//             return "Sorry, we can't deliver to that address"
+//         }
+//     }
+// }
 
-console.log(canWeDeliver(85293))
+// console.log(canWeDeliver(85293))
+
+//should have use .includes not for loop
 
 /* 
     Problem 2 Continued
@@ -84,13 +88,23 @@ console.log(canWeDeliver(85293))
 
 // CODE HERE
 
-const canWeDeliverTwo = () => {
-    deliveryAreaZipCodes.includes(85205, 85204, 85203, 85213, 85206) 
-        console.log("You're in our delivery zone!") } 
+// const canWeDeliverTwo = () => {
+//     deliveryAreaZipCodes.includes(85205, 85204, 85203, 85213, 85206) 
+//         console.log("You're in our delivery zone!") } 
    
 
-canWeDeliverTwo(85205)
+// canWeDeliverTwo(85205)
 
+function canWeDeliverTwo(zipCode) {
+    for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+        if (zipCode === deliveryAreaZipCodes[i]) {
+            return 'You are in our delivery zone'
+        }
+    }
+    return 'You are not eligable for delivery'
+}
+
+// console.log(canWeDeliverTwo(85295))
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -127,9 +141,13 @@ const deals = [
 
 //CODE HERE
 
-let {title} = deals
+deals[0].title = deals[0].title.replace('15', '10')
 
-console.log(title)
+console.log(deals)
+
+// let {title} = deals
+
+// console.log(title)
 
 // let result = deals.replace("15%", "10%")
 
@@ -152,3 +170,7 @@ console.log(title)
 */
 
 //CODE HERE
+
+deals[1].desc = deals[1].desc.replace('Marth', 'April').trim()
+
+console.log(deals)
